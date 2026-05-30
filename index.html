@@ -77,6 +77,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
+            position: relative;
         }
         /* Brand Identity Area (Left) */
         
@@ -115,14 +116,14 @@
         }
         
         .main-navigation>li {
-            position: relative;
+            position: static; /* Required for Full-Width Mega Menu */
         }
         
         .main-navigation>li>a {
             display: block;
             color: #111111;
             text-decoration: none;
-            padding: 10px 18px;
+            padding: 15px 18px;
             font-weight: 700;
             font-size: 0.95rem;
             text-transform: uppercase;
@@ -133,37 +134,76 @@
         .main-navigation>li>a:hover {
             color: var(--primary-green);
         }
-        /* Dropdown Menu Adjustments */
+
+        /* --- Mega Menu Dropdown Layout (Flips Downwards) --- */
         
-        .dropdown-menu {
-            display: none;
+        .mega-dropdown {
             position: absolute;
             top: 100%;
             left: 0;
+            width: 100%;
             background-color: var(--pure-white);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            list-style: none;
-            border-top: 3px solid var(--primary-green);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--primary-green);
+            padding: 30px 40px;
+            
+            /* Flip Animation Setup */
+            visibility: hidden;
+            opacity: 0;
+            transform: rotateX(-90deg);
+            transform-origin: top;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 0.3s ease, visibility 0.3s;
+            z-index: 999;
         }
-        
-        .dropdown-menu li a {
-            display: block;
-            color: var(--text-dark);
-            padding: 12px 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+
+        /* Hover Trigger to activate flip */
+        .has-mega:hover .mega-dropdown {
+            visibility: visible;
+            opacity: 1;
+            transform: rotateX(0deg);
         }
-        
-        .dropdown-menu li a:hover {
-            background-color: var(--off-white);
+
+        /* Mega Menu Inner Content Grid */
+        .mega-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+        }
+
+        .mega-column h4 {
             color: var(--primary-green);
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eef2f5;
+            letter-spacing: 0.5px;
+        }
+
+        .mega-column ul {
+            list-style: none;
+        }
+
+        .mega-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .mega-column ul li a {
+            color: #555555;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+            display: inline-block;
+        }
+
+        .mega-column ul li a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
         }
         
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
         /* --- Hero Section --- */
         
         .hero {
@@ -172,6 +212,7 @@
             text-align: center;
             padding: 80px 20px;
             margin-bottom: 40px;
+            perspective: 1000px; /* Essential for 3D flip dropdown effects */
         }
         
         .hero h2 {
@@ -316,6 +357,25 @@
                 justify-content: center;
                 flex-wrap: wrap;
             }
+            .mega-dropdown {
+                position: static;
+                transform: none;
+                visibility: visible;
+                opacity: 1;
+                display: none;
+                padding: 20px;
+            }
+            .has-mega:hover .mega-dropdown {
+                display: block;
+            }
+            .mega-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .mega-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -325,11 +385,9 @@
     <!-- 1. Top Utility Yellow Bar -->
     <div class="top-utility-bar">
         <ul class="top-utility-links">
-            <!-- Linked registration portal here -->
             <li><a href="https://omarkanji-949.github.io/MAMU/" target="_blank">Join Us</a></li> |
             <li><a href="#leaders">Students</a></li> |
-            <li><a href="#staff">Staff</a></li> |
-
+            <li><a href="#staff">Staff</a></li>
         </ul>
     </div>
 
@@ -349,8 +407,76 @@
 
             <!-- Right Side Navigation Items -->
             <ul class="main-navigation">
-                <li><a href="#about">About MAMU</a></li>
-                <!-- Linked registration portal here -->
+                <!-- Added "has-mega" class to wrap the dropdown -->
+                <li class="has-mega">
+                    <a href="#about">About MAMU</a>
+                    
+                    <!-- Full-Width Mega Dropdown Layout (Flips downward) -->
+                    <div class="mega-dropdown">
+                        <div class="mega-grid">
+                            
+                            <!-- Column 1: About Us (Editable Links) -->
+                            <div class="mega-column">
+                                <h4>About Us</h4>
+                                <ul>
+                                    <li><a href="#about">Our Profile</a></li>
+                                    <li><a href="#">Vision & Mission</a></li>
+                                    <li><a href="#">Constitution & Policy</a></li>
+                                    <li><a href="#">MAMU History</a></li>
+                                    <li><a href="#">Patron's Message</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 2: Governance (Editable Links) -->
+                            <div class="mega-column">
+                                <h4>Governance</h4>
+                                <ul>
+                                    <li><a href="#leaders">Executive Committee</a></li>
+                                    <li><a href="#">Advisory Council</a></li>
+                                    <li><a href="#staff">Staff Coordinators</a></li>
+                                    <li><a href="#">Sub-Committees</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 3: Student Life (Editable Links) -->
+                            <div class="mega-column">
+                                <h4>Student Life</h4>
+                                <ul>
+                                    <li><a href="#">Brothers' Wing</a></li>
+                                    <li><a href="#">Sisters' Wing</a></li>
+                                    <li><a href="#">Mentorship Programs</a></li>
+                                    <li><a href="#">Hostel Da'wah</a></li>
+                                    <li><a href="#">Alumni Network</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 4: Activities (Editable Links) -->
+                            <div class="mega-column">
+                                <h4>Activities</h4>
+                                <ul>
+                                    <li><a href="#">Daily Prayers & Halaqas</a></li>
+                                    <li><a href="#">Friday Khutbahs</a></li>
+                                    <li><a href="#">Ramadhan Iftar Program</a></li>
+                                    <li><a href="#">Community Outreach</a></li>
+                                    <li><a href="#">Annual Islamic Week</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Column 5: Media Desk (Editable Links) -->
+                            <div class="mega-column">
+                                <h4>Media Desk</h4>
+                                <ul>
+                                    <li><a href="#">Latest News</a></li>
+                                    <li><a href="#">Event Gallery</a></li>
+                                    <li><a href="#">Video Library</a></li>
+                                    <li><a href="#">Publications / Articles</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
                 <li><a href="https://omarkanji-949.github.io/MAMU/" target="_blank">Join Us</a></li>
                 <li><a href="#staff">Staff</a></li>
             </ul>
@@ -370,8 +496,7 @@
         <!-- About Section -->
         <section id="about" class="section-card">
             <h3>About MAMU</h3>
-            <p>The Muslim Association of Meru University (MAMU) is dedicated to serving the spiritual, social, and academic needs of Muslim students and staff members within the institution. We aim to create a supportive environment that inspires moral integrity,
-                community service, and outstanding leadership qualities.</p>
+            <p>The Muslim Association of Meru University (MAMU) is dedicated to serving the spiritual, social, and academic needs of Muslim students and staff members within the institution. We aim to create a supportive environment that inspires moral integrity, community service, and outstanding leadership qualities.</p>
         </section>
 
         <!-- New Dedicated Join Us Section with Registration Portal Link -->
