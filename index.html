@@ -279,7 +279,7 @@
         
         .leaders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
@@ -292,6 +292,10 @@
             padding: 25px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
         }
         
         .leader-card:hover {
@@ -311,6 +315,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
         
         .avatar-box img {
@@ -318,11 +323,26 @@
             height: 100%;
             object-fit: cover;
         }
-        
-        .leader-card h4 {
+
+        /* Editable Form Fields Elements styling */
+        .editable-name-input {
+            width: 100%;
+            border: 1px dashed #cccccc;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: var(--deep-brown);
-            font-size: 1.2rem;
+            text-align: center;
             margin-bottom: 5px;
+            background-color: transparent;
+            transition: all 0.2s ease;
+        }
+
+        .editable-name-input:focus {
+            outline: none;
+            border: 1px solid var(--primary-green);
+            background-color: #f0f7f4;
         }
         
         .leader-card .role {
@@ -331,6 +351,42 @@
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .image-upload-btn {
+            font-size: 0.75rem;
+            background-color: #f3f3f3;
+            border: 1px solid #dddddd;
+            padding: 3px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 auto;
+            color: #555555;
+            transition: background 0.2s;
+        }
+
+        .image-upload-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .hidden-file-input {
+            display: none;
+        }
+
+        .leadership-qualities-box {
+            background-color: #f7faf8;
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        .leadership-qualities-box ul {
+            margin-left: 20px;
+            margin-top: 5px;
         }
         /* --- Footer --- */
         
@@ -554,40 +610,177 @@
         </section>
 
         <section id="leaders" class="section-card">
-            <h3>MAMU Student Leaders</h3>
-            <p>Meet the dedicated executive committee members working to serve our student community this academic year.</p>
+            <h3>MAMU Student Leaders (Executive Board)</h3>
+            <p>Meet and manage the dedicated executive committee members working to serve our student community this academic year. <em>(Note: Names and images are fully interactive and editable directly on this page).</em></p>
+
+            <div class="leadership-qualities-box">
+                <strong>Constitutional Leadership Character Parameters:</strong>
+                <ul>
+                    <li>Exemplary, trustworthy, and honest character.</li>
+                    <li>Highly enthusiastic, analytical, and proactive goals focus.</li>
+                    <li>Steadfast, calm under ambiguity, and committed to complete operational excellence.</li>
+                </ul>
+            </div>
 
             <div class="leaders-grid">
                 <div class="leader-card">
-                    <div class="avatar-box">
-                        <img src="https://via.placeholder.com/150" alt="Chairperson Photo">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Patron Photo" id="img-patron">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Dr. Mohamed Shano" title="Click to edit name">
+                        <p class="role">Patron (Ex-Officio)</p>
                     </div>
-                    <h4>Ramadhaan Bakari</h4>
-                    <p class="role">Chairperson</p>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-patron')">
+                        </label>
+                    </div>
                 </div>
 
                 <div class="leader-card">
-                    <div class="avatar-box">
-                        <img src="https://via.placeholder.com/150" alt="Vice Chair Photo">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Chairman Photo" id="img-chairman">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Ramadhaan Bakari" title="Click to edit name">
+                        <p class="role">Chairman</p>
                     </div>
-                    <h4>Aisha Shande</h4>
-                    <p class="role">Chairlady</p>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-chairman')">
+                        </label>
+                    </div>
                 </div>
 
                 <div class="leader-card">
-                    <div class="avatar-box">
-                        <img src="https://via.placeholder.com/150" alt="Secretary Photo">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Chairlady Photo" id="img-chairlady">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Aisha Shande" title="Click to edit name">
+                        <p class="role">Chairlady</p>
                     </div>
-                    <h4>Halima</h4>
-                    <p class="role">Secretary</p>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-chairlady')">
+                        </label>
+                    </div>
                 </div>
 
                 <div class="leader-card">
-                    <div class="avatar-box">
-                        <img src="https://via.placeholder.com/150" alt="Treasurer Photo">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Secretary Photo" id="img-secretary">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Halima" title="Click to edit name">
+                        <p class="role">Secretary</p>
                     </div>
-                    <h4>Lokho</h4>
-                    <p class="role">Treasurer</p>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-secretary')">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="leader-card">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Treasurer Photo" id="img-treasurer">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Lokho" title="Click to edit name">
+                        <p class="role">Treasurer</p>
+                    </div>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-treasurer')">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="leader-card">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Assistant Treasurer Photo" id="img-asst-treasurer">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <p class="role">Assistant Treasurer</p>
+                    </div>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-asst-treasurer')">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="leader-card">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Organizing Secretary Photo" id="img-org-secretary">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <p class="role">Organizing Secretary</p>
+                    </div>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-org-secretary')">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="leader-card">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Da'wa Coordinator Photo" id="img-dawa">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <p class="role">Da'wa Coordinator</p>
+                    </div>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-dawa')">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="leader-card">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Student Imam Photo" id="img-imam">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <p class="role">Student Imam</p>
+                    </div>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-imam')">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="leader-card">
+                    <div>
+                        <div class="avatar-box">
+                            <img src="https://via.placeholder.com/150" alt="Muadhin Photo" id="img-muadhin">
+                        </div>
+                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <p class="role">Muadhin</p>
+                    </div>
+                    <div>
+                        <label class="image-upload-btn">
+                            Change Picture
+                            <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-muadhin')">
+                        </label>
+                    </div>
                 </div>
             </div>
         </section>
@@ -603,6 +796,17 @@
         <p>© 2026 Muslim Association of Meru University (MAMU). All Rights Reserved.</p>
     </footer>
 
+    <script>
+        function previewImage(input, targetImageId) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(targetImageId).setAttribute('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </body>
 
 </html>
