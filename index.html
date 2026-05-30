@@ -30,7 +30,7 @@
             line-height: 1.6;
             background-color: var(--off-white);
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23f9c623' stroke-width='0.5' stroke-opacity='0.15'/%3E%3Cpath d='M0 0L30 30L0 60Z' fill='none' stroke='%230a5c36' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M60 0L30 30L60 60Z' fill='none' stroke='%230a5c36' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Ccircle cx='30' cy='30' r='5' fill='none' stroke='%235c3a21' stroke-width='0.5' stroke-opacity='0.2'/%3E%3C/svg%3E");
-            scroll-behavior: smooth; /* Enhances the anchor jumping effect */
+            scroll-behavior: smooth;
         }
         /* --- Top Yellow Utility Bar --- */
         
@@ -80,7 +80,7 @@
             padding: 15px 40px;
             position: relative;
         }
-        /* Brand Identity Area (Left) */
+        /* Brand Identity Area */
         
         .brand-identity {
             display: flex;
@@ -107,7 +107,7 @@
             letter-spacing: 0.5px;
             line-height: 1.2;
         }
-        /* Main Menu Area (Right) */
+        /* Main Menu Area */
         
         .main-navigation {
             list-style: none;
@@ -136,7 +136,7 @@
             color: var(--primary-green);
         }
 
-        /* --- Mega Menu Dropdown Layout (Flips Downwards) --- */
+        /* --- Mega Menu Dropdown Layout --- */
         
         .mega-dropdown {
             position: absolute;
@@ -148,7 +148,6 @@
             border-top: 4px solid var(--primary-green);
             padding: 30px 40px;
             
-            /* Flip Animation Setup */
             visibility: hidden;
             opacity: 0;
             transform: rotateX(-90deg);
@@ -157,14 +156,12 @@
             z-index: 999;
         }
 
-        /* Hover Trigger to activate flip */
         .has-mega:hover .mega-dropdown {
             visibility: visible;
             opacity: 1;
             transform: rotateX(0deg);
         }
 
-        /* Mega Menu Inner Content Grid */
         .mega-grid {
             max-width: 1400px;
             margin: 0 auto;
@@ -251,7 +248,7 @@
             border-bottom: 2px solid var(--off-white);
             padding-bottom: 10px;
         }
-        /* --- Register Button Styling --- */
+        /* --- Button Styling --- */
         
         .register-btn {
             display: inline-block;
@@ -275,7 +272,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(10, 92, 54, 0.3);
         }
-        /* --- Student Leaders Grid --- */
+        /* --- Executive Board Grid --- */
         
         .leaders-grid {
             display: grid;
@@ -324,7 +321,6 @@
             object-fit: cover;
         }
 
-        /* Editable Form Fields Elements styling */
         .editable-name-input {
             width: 100%;
             border: 1px dashed #cccccc;
@@ -452,7 +448,7 @@
 
             <a href="#" class="brand-identity">
                 <div class="logo-container">
-                    <img src="MAMU logo.png" alt="MAMU Logo">
+                    <img src="images/MAMU_logo.png" alt="MAMU Logo">
                 </div>
                 <div class="brand-title">
                     Muslim Association of<br>Meru University
@@ -626,7 +622,7 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Patron Photo" id="img-patron">
+                            <img src="images/patron.jpg" alt="Patron Photo" id="img-patron" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
                         <input type="text" class="editable-name-input" value="Dr. Mohamed Shano" title="Click to edit name">
                         <p class="role">Patron (Ex-Officio)</p>
@@ -642,7 +638,7 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Chairman Photo" id="img-chairman">
+                            <img src="images/chairman.jpg" alt="Chairman Photo" id="img-chairman" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
                         <input type="text" class="editable-name-input" value="Ramadhaan Bakari" title="Click to edit name">
                         <p class="role">Chairman</p>
@@ -658,7 +654,7 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Chairlady Photo" id="img-chairlady">
+                            <img src="images/chairlady.jpg" alt="Chairlady Photo" id="img-chairlady" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
                         <input type="text" class="editable-name-input" value="Aisha Shande" title="Click to edit name">
                         <p class="role">Chairlady</p>
@@ -674,7 +670,7 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Secretary Photo" id="img-secretary">
+                            <img src="images/secretary.jpg" alt="Secretary Photo" id="img-secretary" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
                         <input type="text" class="editable-name-input" value="Halima" title="Click to edit name">
                         <p class="role">Secretary</p>
@@ -690,7 +686,7 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Treasurer Photo" id="img-treasurer">
+                            <img src="images/treasurer.jpg" alt="Treasurer Photo" id="img-treasurer" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
                         <input type="text" class="editable-name-input" value="Lokho" title="Click to edit name">
                         <p class="role">Treasurer</p>
@@ -706,9 +702,9 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Assistant Treasurer Photo" id="img-asst-treasurer">
+                            <img src="images/assistant_treasurer.jpg" alt="Assistant Treasurer Photo" id="img-asst-treasurer" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
-                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <input type="text" class="editable-name-input" value="Assistant Treasurer Name" title="Click to edit name">
                         <p class="role">Assistant Treasurer</p>
                     </div>
                     <div>
@@ -722,9 +718,9 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Organizing Secretary Photo" id="img-org-secretary">
+                            <img src="images/organizing_secretary.jpg" alt="Organizing Secretary Photo" id="img-org-secretary" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
-                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <input type="text" class="editable-name-input" value="Organizing Secretary Name" title="Click to edit name">
                         <p class="role">Organizing Secretary</p>
                     </div>
                     <div>
@@ -738,9 +734,9 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Da'wa Coordinator Photo" id="img-dawa">
+                            <img src="images/dawa_coordinator.jpg" alt="Da'wa Coordinator Photo" id="img-dawa" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
-                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <input type="text" class="editable-name-input" value="Da'wa Coordinator Name" title="Click to edit name">
                         <p class="role">Da'wa Coordinator</p>
                     </div>
                     <div>
@@ -754,9 +750,9 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Student Imam Photo" id="img-imam">
+                            <img src="images/imam.jpg" alt="Student Imam Photo" id="img-imam" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
-                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <input type="text" class="editable-name-input" value="Student Imam Name" title="Click to edit name">
                         <p class="role">Student Imam</p>
                     </div>
                     <div>
@@ -770,9 +766,9 @@
                 <div class="leader-card">
                     <div>
                         <div class="avatar-box">
-                            <img src="https://via.placeholder.com/150" alt="Muadhin Photo" id="img-muadhin">
+                            <img src="images/muadhin.jpg" alt="Muadhin Photo" id="img-muadhin" onerror="this.src='https://via.placeholder.com/150'">
                         </div>
-                        <input type="text" class="editable-name-input" value="Enter Name Here" title="Click to edit name">
+                        <input type="text" class="editable-name-input" value="Muadhin Name" title="Click to edit name">
                         <p class="role">Muadhin</p>
                     </div>
                     <div>
