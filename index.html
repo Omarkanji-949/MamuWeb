@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muslim Association of Meru University | MAMU</title>
     <style>
         /* --- Color Palette Variables --- */
-        :root {
+        
+         :root {
             --primary-green: #0a5c36;
-            --accent-gold: #f9c623; 
+            --accent-gold: #f9c623;
             --deep-brown: #5c3a21;
             --pure-white: #ffffff;
             --off-white: #f9f9f9;
             --text-dark: #222222;
         }
-
         /* --- Reset & Global Styles --- */
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
             color: var(--text-dark);
             line-height: 1.6;
             background-color: var(--off-white);
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23f9c623' stroke-width='0.5' stroke-opacity='0.15'/%3E%3Cpath d='M0 0L30 30L0 60Z' fill='none' stroke='%230a5c36' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M60 0L30 30L60 60Z' fill='none' stroke='%230a5c36' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Ccircle cx='30' cy='30' r='5' fill='none' stroke='%235c3a21' stroke-width='0.5' stroke-opacity='0.2'/%3E%3C/svg%3E");
         }
-
         /* --- Top Yellow Utility Bar --- */
+        
         .top-utility-bar {
             background-color: var(--accent-gold);
             padding: 10px 40px;
             font-size: 0.85rem;
             font-weight: 700;
         }
-
+        
         .top-utility-links {
             max-width: 1400px;
             margin: 0 auto;
@@ -46,28 +48,28 @@
             gap: 8px;
             color: var(--primary-green);
         }
-
+        
         .top-utility-links a {
             color: var(--primary-green);
             text-decoration: none;
             text-transform: uppercase;
             transition: color 0.2s ease;
         }
-
+        
         .top-utility-links a:hover {
             color: var(--deep-brown);
         }
-
         /* --- Main Header & Nav Row --- */
+        
         .main-header-row {
             background: var(--pure-white);
             border-bottom: 2px solid #eaeaea;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-
+        
         .header-nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -76,25 +78,25 @@
             align-items: center;
             padding: 15px 40px;
         }
-
         /* Brand Identity Area (Left) */
+        
         .brand-identity {
             display: flex;
             align-items: center;
             gap: 15px;
             text-decoration: none;
         }
-
+        
         .logo-container {
-            max-width: 75px; 
+            max-width: 75px;
         }
-
+        
         .logo-container img {
             width: 100%;
             height: auto;
             display: block;
         }
-
+        
         .brand-title {
             color: var(--primary-green);
             font-size: 1.3rem;
@@ -103,20 +105,20 @@
             letter-spacing: 0.5px;
             line-height: 1.2;
         }
-
         /* Main Menu Area (Right) */
+        
         .main-navigation {
             list-style: none;
             display: flex;
             align-items: center;
             gap: 5px;
         }
-
-        .main-navigation > li {
+        
+        .main-navigation>li {
             position: relative;
         }
-
-        .main-navigation > li > a {
+        
+        .main-navigation>li>a {
             display: block;
             color: #111111;
             text-decoration: none;
@@ -127,12 +129,12 @@
             transition: all 0.2s ease;
             letter-spacing: 0.5px;
         }
-
-        .main-navigation > li > a:hover {
+        
+        .main-navigation>li>a:hover {
             color: var(--primary-green);
         }
-
         /* Dropdown Menu Adjustments */
+        
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -140,11 +142,11 @@
             left: 0;
             background-color: var(--pure-white);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             list-style: none;
             border-top: 3px solid var(--primary-green);
         }
-
+        
         .dropdown-menu li a {
             display: block;
             color: var(--text-dark);
@@ -153,17 +155,17 @@
             font-weight: 600;
             font-size: 0.9rem;
         }
-
+        
         .dropdown-menu li a:hover {
             background-color: var(--off-white);
             color: var(--primary-green);
         }
-
+        
         .dropdown:hover .dropdown-menu {
             display: block;
         }
-
         /* --- Hero Section --- */
+        
         .hero {
             background: linear-gradient(rgba(10, 92, 54, 0.85), rgba(92, 58, 33, 0.85)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             color: var(--pure-white);
@@ -171,35 +173,35 @@
             padding: 80px 20px;
             margin-bottom: 40px;
         }
-
+        
         .hero h2 {
             font-size: 2.5rem;
             color: var(--accent-gold);
             margin-bottom: 15px;
         }
-
+        
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
         }
-
         /* --- Main Content Layout --- */
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px 60px 20px;
         }
-
+        
         .section-card {
             background: var(--pure-white);
             padding: 40px;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             border-left: 5px solid var(--primary-green);
             margin-bottom: 40px;
         }
-
+        
         h3 {
             color: var(--primary-green);
             margin-bottom: 20px;
@@ -207,8 +209,8 @@
             border-bottom: 2px solid var(--off-white);
             padding-bottom: 10px;
         }
-
         /* --- Register Button Styling --- */
+        
         .register-btn {
             display: inline-block;
             background-color: var(--primary-green);
@@ -224,22 +226,22 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(10, 92, 54, 0.2);
         }
-
+        
         .register-btn:hover {
             background-color: var(--pure-white);
             color: var(--primary-green);
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(10, 92, 54, 0.3);
         }
-
         /* --- Student Leaders Grid --- */
+        
         .leaders-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 30px;
             margin-top: 30px;
         }
-
+        
         .leader-card {
             background: var(--pure-white);
             border: 1px solid #eef2f5;
@@ -247,15 +249,15 @@
             text-align: center;
             padding: 25px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
         }
-
+        
         .leader-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             border-color: var(--accent-gold);
         }
-
+        
         .avatar-box {
             width: 120px;
             height: 120px;
@@ -268,19 +270,19 @@
             align-items: center;
             justify-content: center;
         }
-
+        
         .avatar-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+        
         .leader-card h4 {
             color: var(--deep-brown);
             font-size: 1.2rem;
             margin-bottom: 5px;
         }
-
+        
         .leader-card .role {
             color: var(--primary-green);
             font-weight: 600;
@@ -288,8 +290,8 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
         /* --- Footer --- */
+        
         footer {
             background-color: var(--deep-brown);
             color: var(--pure-white);
@@ -297,12 +299,12 @@
             padding: 30px 20px;
             border-top: 5px solid var(--primary-green);
         }
-
+        
         footer p {
             font-size: 0.95rem;
         }
-
         /* --- Responsive Viewports --- */
+        
         @media (max-width: 1024px) {
             .header-nav-container {
                 flex-direction: column;
@@ -317,6 +319,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- 1. Top Utility Yellow Bar -->
@@ -326,14 +329,14 @@
             <li><a href="https://omarkanji-949.github.io/MAMU/" target="_blank">Join Us</a></li> |
             <li><a href="#leaders">Students</a></li> |
             <li><a href="#staff">Staff</a></li> |
-            
+
         </ul>
     </div>
 
     <!-- 2. Integrated Inline Header & Navigation Row -->
     <nav class="main-header-row">
         <div class="header-nav-container">
-            
+
             <!-- Left Side Logo and Title Branding -->
             <a href="#" class="brand-identity">
                 <div class="logo-container">
@@ -349,12 +352,6 @@
                 <li><a href="#about">About MAMU</a></li>
                 <!-- Linked registration portal here -->
                 <li><a href="https://omarkanji-949.github.io/MAMU/" target="_blank">Join Us</a></li>
-                <li class="dropdown">
-                    <a href="#leaders">Students ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#leaders">Student Leaders</a></li>
-                    </ul>
-                </li>
                 <li><a href="#staff">Staff</a></li>
             </ul>
 
@@ -369,11 +366,12 @@
 
     <!-- Main Content Panels -->
     <main class="container">
-        
+
         <!-- About Section -->
         <section id="about" class="section-card">
             <h3>About MAMU</h3>
-            <p>The Muslim Association of Meru University (MAMU) is dedicated to serving the spiritual, social, and academic needs of Muslim students and staff members within the institution. We aim to create a supportive environment that inspires moral integrity, community service, and outstanding leadership qualities.</p>
+            <p>The Muslim Association of Meru University (MAMU) is dedicated to serving the spiritual, social, and academic needs of Muslim students and staff members within the institution. We aim to create a supportive environment that inspires moral integrity,
+                community service, and outstanding leadership qualities.</p>
         </section>
 
         <!-- New Dedicated Join Us Section with Registration Portal Link -->
@@ -387,7 +385,7 @@
         <section id="leaders" class="section-card">
             <h3>MAMU Student Leaders</h3>
             <p>Meet the dedicated executive committee members working to serve our student community this academic year.</p>
-            
+
             <div class="leaders-grid">
                 <div class="leader-card">
                     <div class="avatar-box">
@@ -437,4 +435,5 @@
     </footer>
 
 </body>
+
 </html>
