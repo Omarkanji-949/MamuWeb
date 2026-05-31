@@ -32,6 +32,7 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23f9c623' stroke-width='0.5' stroke-opacity='0.15'/%3E%3Cpath d='M0 0L30 30L0 60Z' fill='none' stroke='%230a5c36' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M60 0L30 30L60 60Z' fill='none' stroke='%230a5c36' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Ccircle cx='30' cy='30' r='5' fill='none' stroke='%235c3a21' stroke-width='0.5' stroke-opacity='0.2'/%3E%3C/svg%3E");
             scroll-behavior: smooth;
         }
+        
         /* --- Top Yellow Utility Bar --- */
         
         .top-utility-bar {
@@ -60,6 +61,7 @@
         .top-utility-links a:hover {
             color: var(--deep-brown);
         }
+        
         /* --- Main Header & Nav Row --- */
         
         .main-header-row {
@@ -80,7 +82,6 @@
             padding: 15px 40px;
             position: relative;
         }
-        /* Brand Identity Area */
         
         .brand-identity {
             display: flex;
@@ -107,7 +108,6 @@
             letter-spacing: 0.5px;
             line-height: 1.2;
         }
-        /* Main Menu Area */
         
         .main-navigation {
             list-style: none;
@@ -147,7 +147,6 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
             border-top: 4px solid var(--primary-green);
             padding: 30px 40px;
-            
             visibility: hidden;
             opacity: 0;
             transform: rotateX(-90deg);
@@ -210,7 +209,6 @@
             text-align: center;
             padding: 80px 20px;
             margin-bottom: 40px;
-            perspective: 1000px;
         }
         
         .hero h2 {
@@ -224,6 +222,7 @@
             max-width: 700px;
             margin: 0 auto;
         }
+        
         /* --- Main Content Layout --- */
         
         .container {
@@ -248,6 +247,7 @@
             border-bottom: 2px solid var(--off-white);
             padding-bottom: 10px;
         }
+        
         /* --- Button Styling --- */
         
         .register-btn {
@@ -272,6 +272,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(10, 92, 54, 0.3);
         }
+        
         /* --- Executive Board Grid --- */
         
         .leaders-grid {
@@ -313,7 +314,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
         }
         
         .avatar-box img {
@@ -322,24 +322,11 @@
             object-fit: cover;
         }
 
-        .editable-name-input {
-            width: 100%;
-            border: 1px dashed #cccccc;
-            border-radius: 4px;
-            padding: 4px 8px;
-            font-size: 1.15rem;
+        .leader-card .name {
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--deep-brown);
-            text-align: center;
-            margin-bottom: 5px;
-            background-color: transparent;
-            transition: all 0.2s ease;
-        }
-
-        .editable-name-input:focus {
-            outline: none;
-            border: 1px solid var(--primary-green);
-            background-color: #f0f7f4;
+            margin-bottom: 4px;
         }
         
         .leader-card .role {
@@ -348,36 +335,13 @@
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .leader-card .course-tag {
             font-size: 0.85rem;
             color: #666666;
             font-style: italic;
-            margin-top: -5px;
-            margin-bottom: 10px;
-        }
-
-        .image-upload-btn {
-            font-size: 0.75rem;
-            background-color: #f3f3f3;
-            border: 1px solid #dddddd;
-            padding: 3px 8px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: inline-block;
-            margin: 8px auto 0 auto;
-            color: #555555;
-            transition: background 0.2s;
-        }
-
-        .image-upload-btn:hover {
-            background-color: #e0e0e0;
-        }
-
-        .hidden-file-input {
-            display: none;
         }
 
         .leadership-qualities-box {
@@ -394,7 +358,8 @@
             margin-top: 5px;
         }
 
-        /* --- Dynamic Modal Structure --- */
+        /* --- Isolated Scrollable Modal Layout --- */
+        
         .mamu-modal {
             display: none; 
             position: fixed; 
@@ -403,24 +368,29 @@
             top: 0;
             width: 100%; 
             height: 100%; 
-            overflow: auto; 
             background-color: rgba(0,0,0,0.6);
             backdrop-filter: blur(3px);
             align-items: center;
             justify-content: center;
         }
 
+        /* Prevent background scroll when modal is active */
+        body.modal-open {
+            overflow: hidden;
+        }
+
         .modal-wrapper {
             background-color: var(--pure-white);
-            margin: auto;
             padding: 35px;
             border-radius: 12px;
             border-top: 6px solid var(--primary-green);
             width: 90%;
-            max-width: 500px;
+            max-width: 550px;
+            max-height: 85vh; /* Prevents modal exceeding screen boundaries */
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            text-align: center;
             position: relative;
+            display: flex;
+            flex-direction: column;
             animation: modalEntrance 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
@@ -437,6 +407,7 @@
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
+            z-index: 10;
             transition: color 0.2s;
         }
 
@@ -444,12 +415,19 @@
             color: var(--deep-brown);
         }
 
+        /* Static Top Elements within Modal */
+        .modal-header-content {
+            text-align: center;
+            flex-shrink: 0; /* Prevents compression */
+            margin-bottom: 15px;
+        }
+
         .modal-avatar {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             border: 4px solid var(--accent-gold);
-            margin: 0 auto 20px auto;
+            margin: 0 auto 15px auto;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
@@ -460,51 +438,82 @@
             object-fit: cover;
         }
 
-        .modal-name-input {
-            font-size: 1.5rem;
+        .modal-header-content h4 {
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--deep-brown);
-            border: 1px dashed #ccc;
-            text-align: center;
-            width: 100%;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            padding: 4px;
+            margin-bottom: 6px;
         }
 
         .modal-role-badge {
             display: inline-block;
             background-color: #f0f7f4;
             color: var(--primary-green);
-            padding: 6px 16px;
+            padding: 5px 14px;
             font-weight: 700;
             border-radius: 20px;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
             border: 1px solid rgba(10, 92, 54, 0.1);
         }
 
-        .modal-course-input {
-            width: 100%;
-            font-size: 1rem;
-            color: #555;
-            border: 1px dashed #ccc;
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 4px;
+        .modal-course-text {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Isolated Scroll Container for Constitution Roles */
+        .modal-scroll-body {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 8px;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        /* Scrollbar aesthetics */
+        .modal-scroll-body::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-scroll-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
             border-radius: 4px;
+        }
+        .modal-scroll-body::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+        .modal-scroll-body::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-green);
         }
 
         .modal-description-box {
             background-color: var(--off-white);
             border-radius: 6px;
-            padding: 15px;
+            padding: 18px;
             font-size: 0.95rem;
-            text-align: left;
-            border-left: 3px solid var(--accent-gold);
-            color: #444;
+            border-left: 4px solid var(--accent-gold);
+            color: #333;
+        }
+
+        .modal-description-box h5 {
+            color: var(--primary-green);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-description-box ul {
+            margin-left: 20px;
+        }
+
+        .modal-description-box li {
+            margin-bottom: 8px;
+            line-height: 1.5;
         }
 
         /* --- Footer --- */
@@ -517,9 +526,6 @@
             border-top: 5px solid var(--primary-green);
         }
         
-        footer p {
-            font-size: 0.95rem;
-        }
         /* --- Responsive Viewports --- */
         
         @media (max-width: 1024px) {
@@ -568,7 +574,6 @@
 
     <nav class="main-header-row">
         <div class="header-nav-container">
-
             <a href="#" class="brand-identity">
                 <div class="logo-container">
                     <img src="MAMU logo.png" alt="MAMU Logo">
@@ -577,14 +582,11 @@
                     Muslim Association of<br>Meru University
                 </div>
             </a>
-
             <ul class="main-navigation">
                 <li class="has-mega">
                     <a href="#about">About MAMU</a>
-                    
                     <div class="mega-dropdown">
                         <div class="mega-grid">
-                            
                             <div class="mega-column">
                                 <h4>About Us</h4>
                                 <ul>
@@ -596,7 +598,6 @@
                                     <li><a href="#Mosque Direction">Mosque Direction</a></li>
                                 </ul>
                             </div>
-
                             <div class="mega-column">
                                 <h4>Governance</h4>
                                 <ul>
@@ -606,7 +607,6 @@
                                     <li><a href="#">Sub-Committees</a></li>
                                 </ul>
                             </div>
-
                             <div class="mega-column">
                                 <h4>Student Life</h4>
                                 <ul>
@@ -617,7 +617,6 @@
                                     <li><a href="#">Alumni Network</a></li>
                                 </ul>
                             </div>
-
                             <div class="mega-column">
                                 <h4>Activities</h4>
                                 <ul>
@@ -628,7 +627,6 @@
                                     <li><a href="#">Annual Islamic Week</a></li>
                                 </ul>
                             </div>
-
                             <div class="mega-column">
                                 <h4>Media Desk</h4>
                                 <ul>
@@ -639,14 +637,12 @@
                                     <li><a href="#">Contact Us</a></li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                 </li>
                 <li><a href="https://omarkanji-949.github.io/MAMU/" target="_blank">Join Us</a></li>
                 <li><a href="#staff">Staff</a></li>
             </ul>
-
         </div>
     </nav>
 
@@ -657,13 +653,12 @@
 
     <main class="container">
 
+        <!-- Info Panels (About, Vision, History) -->
         <section id="about" class="section-card">
             <h3>About MAMU</h3>
             <p>The Muslim Association of Meru University (MAMU) is dedicated to serving the spiritual, social, and academic needs of Muslim students and staff members within the institution. We aim to create a supportive environment that inspires moral integrity, community service, and outstanding leadership qualities.</p>
             <div style="margin-top: 20px; border-top: 1px solid #eef2f5; padding-top: 15px;">
                 <p><strong>Official Identity & Philosophy:</strong> Operating under the tagline <em>"Home of Islamic nurturing"</em> (Email: mamumust@gamil.com | P.O. BOX 972-60200 Meru, Kenya), the association holds Islamic culture as its absolute bedrock. Its complete operational rules, values, and guidelines are derived directly from the Holy Quran, Hadith, and the Sunnah of the Holy Prophet Muhammad (SAW).</p>
-                <p style="margin-top: 10px;"><strong>Fundamental Values & Equity:</strong> MAMU firmly upholds human rights and freedom, enforcing non-discrimination on any basis including race, sex, health status, religion, social origin, colour, age, disability, or language, asserting that all Muslims are equal. The association guarantees equal treatment, equal rights to worship, academic development, and resource management access to both men and women, while actively advancing and safeguarding the unique welfare and full potential of Muslim ladies.</p>
-                <p style="margin-top: 10px;"><strong>Operational Framework:</strong> Structurally organized to foster student progression, MAMU oversees regular campus worship facilities (including Friday Khutbahs and coordinated prayer parameters), student leadership development via the Executive Board, and academic mentorship. The association provides a structured community network expanding from certificate levels up to PhD graduations, ensuring continuous support across all academic and alumni layers.</p>
             </div>
         </section>
 
@@ -684,13 +679,6 @@
         <section id="MAMU History" class="section-card">
             <h3>Our History</h3>
             <p>Established as the <em>"Home of Islamic nurturing"</em> at Meru University of Science and Technology (MUST), MAMU has structurally guided the campus Ummah for over a decade.</p>
-            
-            <h4 style="color: var(--deep-brown); margin-top: 15px;">Constitutional Timeline:</h4>
-            <ul class="policy-list">
-                <li><strong>June 2011 (Foundation):</strong> The original MAMU Constitution was prepared and approved under Chairman Yussuf Hassan Emoy and Patron Dr. Mohamed Shano.</li>
-                <li><strong>June 2011 (1st Revision):</strong> Instilled foundational rights, equal gender welfare protocols, and the Majlis Shura leadership vetting system.</li>
-                <li><strong>November 2022 (2nd Revision):</strong> Updated to accommodate a growing campus population, modernized structural operations, and formalized the MAMU Alumni Department.</li>
-            </ul>
         </section>
 
         <section id="Patron's message" class="section-card">
@@ -699,10 +687,7 @@
                 "BismiAllahi arRahmani arRahim — In the Name of Allah, the Most Gracious, the Most Merciful"
             </p>
             <p><strong>Assalamu Alaikum Warahmatullahi Wabarakatuh,</strong></p>
-            <p style="margin-top: 10px;">As the Patron of MAMU, it is my distinct honor to welcome all new and continuing students, faculty, and visitors to our vibrant community. MAMU is affectionately known as the <em>"Home of Islamic Nurturing,"</em> a title we hold with great responsibility. Our fundamental purpose is to provide a holistic environment where academic pursuits and spiritual growth walk hand in hand.</p>
-            <p style="margin-top: 10px;">In my structural role as the ex-officio link between MAMU and the university administration, my mission is to ensure our Muslim students have the support, resources, and guidance they need to thrive within the institution. Whether it is coordinating campus affairs, welcoming new members, or monitoring our student executive board, we are completely committed to maintaining a safe, inclusive space for worship and personal advancement.</p>
-            <p style="margin-top: 10px;">I warmly invite all Muslim students to join our active network, participate in our weekly halaqas, and build a strong foundation for their future. May Allah (SWT) bless your academic journey and enrich your faith.</p>
-            
+            <p style="margin-top: 10px;">As the Patron of MAMU, it is my distinct honor to welcome all new and continuing students, faculty, and visitors to our vibrant community.</p>
             <div style="margin-top: 25px; border-top: 1px solid #eaeaea; padding-top: 15px;">
                 <h5 style="color: var(--primary-green); font-size: 1.1rem; font-weight: 700;">Dr. Mohamed Shano</h5>
                 <p style="font-size: 0.9rem; color: #666; font-weight: 600; text-transform: uppercase;">Patron, Muslim Association of Meru University (MAMU)</p>
@@ -711,196 +696,208 @@
 
         <section id="Mosque Direction" class="section-card">
             <h3>Mosque Direction</h3>
-            <p style="margin-bottom: 20px;">Find your way to the Meru University Mosque for your daily prayers, Friday Khutbahs, and spiritual programs. Use the map interface below or tap the directions button to navigate via your device's external mapping platform.</p>
-            
-            <div style="width: 100%; border: 1px solid #eaeaea; border-radius: 6px; overflow: hidden; background-color: #f0f0f0; box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 15px;">
+            <div style="width: 100%; border: 1px solid #eaeaea; border-radius: 6px; overflow: hidden; background-color: #f0f0f0; margin-bottom: 15px;">
                 <iframe src="https://maps.app.goo.gl/3A259FDGQTPGMZbp7" width="100%" height="350" style="border:0; display:block;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-
-            <a href="https://maps.app.goo.gl/3A259FDGQTPGMZbp7" target="_blank" class="register-btn" style="background-color: var(--primary-green); border-color: var(--primary-green);">
-                Open in Google Maps
-            </a>
+            <a href="https://maps.app.goo.gl/3A259FDGQTPGMZbp7" target="_blank" class="register-btn">Open in Google Maps</a>
         </section>
 
-        <section id="join" class="section-card">
-            <h3>Join Us</h3>
-            <p>Welcome to MAMU! Becoming a member connects you with an active, nurturing community focused on spiritual growth, peer mentorship, and shared values. Register today to stay updated on our upcoming programs, events, and community activities.</p>
-            <a href="https://omarkanji-949.github.io/MAMU/" target="_blank" class="register-btn">Register New Member</a>
-        </section>
-
+        <!-- Leaders Section -->
         <section id="leaders" class="section-card">
             <h3>MAMU Student Leaders (Executive Board)</h3>
-            <p>Meet and manage the dedicated executive committee members working to serve our student community this academic year. <em>(Note: Click on a leader's card to view details, course, and operational roles).</em></p>
-
-            <div class="leadership-qualities-box">
-                <strong>Constitutional Leadership Character Parameters:</strong>
-                <ul>
-                    <li>Exemplary, trustworthy, and honest character.</li>
-                    <li>Highly enthusiastic, analytical, and proactive goals focus.</li>
-                    <li>Steadfast, calm under ambiguity, and committed to complete operational excellence.</li>
-                </ul>
-            </div>
+            <p style="margin-bottom: 15px;">Click on any leader's card to open their profile view and read their full constitutional duties and roles.</p>
 
             <div class="leaders-grid">
-                <!-- Leader 1: Patron -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Serves as the vital link between MAMU and the University Administration, offering structural advice and monitoring executive parameters.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/patron.jpg" alt="Patron Photo" id="img-patron" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Dr. Mohamed Shano" onclick="event.stopPropagation();">
-                        <p class="role">Patron (Ex-Officio)</p>
-                        <p class="course-tag">Faculty Administration</p>
+                
+                <!-- 1. PATRON -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/patron.jpg" alt="Dr. Mohamed Shano" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-patron'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Dr. Mohamed Shano</div>
+                    <div class="role">Patron (Ex-Officio)</div>
+                    <div class="course-tag">Faculty Administration</div>
+                    
+                    <!-- Hidden Constitutional Role Definition -->
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Acts as the principal ex-officio link between the association and the university administration.</li>
+                            <li>Provides advisory guidelines to ensure executive strategies align with university policy parameters.</li>
+                            <li>Countersigns external association records, constitutional updates, and high-level structural declarations.</li>
+                            <li>Arbitrates internal structural disputes within the Executive Board or general assembly should standard arbitration fail.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Leader 2: Chairman -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Provides head executive authority over the association, chairs operational assemblies, and steers systemic planning.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/chairman.jpg" alt="Chairman Photo" id="img-chairman" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Yussuf Hassan" onclick="event.stopPropagation();">
-                        <p class="role">Chairman</p>
-                        <p class="course-tag">BSc. Computer Science</p>
+                <!-- 2. CHAIRMAN -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/chairman.jpg" alt="Yussuf Hassan" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-chairman'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Yussuf Hassan</div>
+                    <div class="role">Chairman</div>
+                    <div class="course-tag">BSc. Computer Science</div>
+                    
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Serves as the head executive authority, official spokesperson, and representative lead of the association.</li>
+                            <li>Convenes and chairs all Executive Committee meetings and general student assemblies.</li>
+                            <li>Directs and oversees the execution of annual programmatic schedules, activities, and constitutional obligations.</li>
+                            <li>Authorizes expenditures and signs official documents, protocols, and statements on behalf of the association.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Leader 3: Chairlady -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Champions the unique development, mentorship, and full structural inclusion of Muslim ladies inside the association.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/chairlady.jpg" alt="Chairlady Photo" id="img-chairlady" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Amina Mansour" onclick="event.stopPropagation();">
-                        <p class="role">Chairlady</p>
-                        <p class="course-tag">BSc. Information Technology</p>
+                <!-- 3. CHAIRLADY -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/chairlady.jpg" alt="Amina Mansour" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-chairlady'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Amina Mansour</div>
+                    <div class="role">Chairlady</div>
+                    <div class="course-tag">BSc. Information Technology</div>
+                    
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Heads the MAMU Sisters' Wing, overseeing spiritual nurturing, specific welfare parameters, and personal development programs for ladies.</li>
+                            <li>Assists the Chairman in structural operations and executes executive authority over the general assembly in his absence.</li>
+                            <li>Coordinates and aligns the implementation of sister-led Da'wah networks, mentorship projects, and health seminars.</li>
+                            <li>Represents the distinct voice, interests, and protection parameters of female Muslim students on the executive panel.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Leader 4: Secretary -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Manages institutional documentation, official communications, records agendas, and structural updates.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/secretary.jpg" alt="Secretary Photo" id="img-secretary" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Bilal Omar" onclick="event.stopPropagation();">
-                        <p class="role">Secretary</p>
-                        <p class="course-tag">BSc. Software Engineering</p>
+                <!-- 4. SECRETARY -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/secretary.jpg" alt="Bilal Omar" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-secretary'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Bilal Omar</div>
+                    <div class="role">Secretary</div>
+                    <div class="course-tag">BSc. Software Engineering</div>
+                    
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Manages and archives all official correspondence, logs, records, and memberships of the association.</li>
+                            <li>Prepares, schedules, and circulates notices, agendas, and clear minutes for all executive and general sessions.</li>
+                            <li>Maintains an accurate register of all registered Muslim students within the university system.</li>
+                            <li>Drafts the standard comprehensive annual secretarial performance reports for review by the patron and assembly.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Leader 5: Treasurer -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Oversees resource allocation, tracks balances, controls the standard structural budget parameters safely.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/treasurer.jpg" alt="Treasurer Photo" id="img-treasurer" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Fatma Zein" onclick="event.stopPropagation();">
-                        <p class="role">Treasurer</p>
-                        <p class="course-tag">Bachelor of Commerce (Finance)</p>
+                <!-- 5. TREASURER -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/treasurer.jpg" alt="Fatma Zein" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-treasurer'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Fatma Zein</div>
+                    <div class="role">Treasurer</div>
+                    <div class="course-tag">Bachelor of Commerce (Finance)</div>
+                    
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Maintains absolute oversight over all association financial resources, checking systems, accounts, and ledger configurations.</li>
+                            <li>Receives, deposits, and tracks all allocations, donations, member contributions, and fundraising structures safely.</li>
+                            <li>Formulates detailed, transparent financial balance sheets and budget reports for presentation to the executive board.</li>
+                            <li>Ensures that all expenditures strictly match constitutional compliance and approved leadership project allocations.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Leader 6: Assistant Treasurer -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Supports budget logging, manages detailed balance receipt operations, and substitutes operational financial workflows.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/assistant_treasurer.jpg" alt="Assistant Treasurer Photo" id="img-asst-treasurer" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Tariq Juma" onclick="event.stopPropagation();">
-                        <p class="role">Assistant Treasurer</p>
-                        <p class="course-tag">BSc. Actuarial Science</p>
+                <!-- 6. ASSISTANT TREASURER -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/assistant_treasurer.jpg" alt="Tariq Juma" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-asst-treasurer'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Tariq Juma</div>
+                    <div class="role">Assistant Treasurer</div>
+                    <div class="course-tag">BSc. Actuarial Science</div>
+                    
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Assists the Treasurer in day-to-day transaction processing, recording tracking logs, and keeping physical receipt archives.</li>
+                            <li>Assumes full financial workflow oversight and executes treasury mandates in the structural absence of the Treasurer.</li>
+                            <li>Monitors routine collection balances during smaller campus gatherings, halaqas, and dynamic project activities.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Leader 7: Organizing Secretary -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Coordinates physical logistics for Islamic Week, event schedules, halaqas, and dynamic community assemblies.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/organizing_secretary.jpg" alt="Organizing Secretary Photo" id="img-org-secretary" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Faiz Ahmed" onclick="event.stopPropagation();">
-                        <p class="role">Organizing Secretary</p>
-                        <p class="course-tag">BSc. Civil Engineering</p>
+                <!-- 7. ORGANIZING SECRETARY -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/organizing_secretary.jpg" alt="Faiz Ahmed" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-org-secretary'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Faiz Ahmed</div>
+                    <div class="role">Organizing Secretary</div>
+                    <div class="course-tag">BSc. Civil Engineering</div>
+                    
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Directs and coordinates all physical layout setups, logistics, equipment, and venue arrangements for MAMU events.</li>
+                            <li>Acts as chief planner for major functions including Islamic Week, Ramadhan Iftar schedules, and community outreach.</li>
+                            <li>Coordinates public announcements, mobilization drives, and awareness campaigns regarding upcoming association dates.</li>
+                            <li>Liaises with external entities and guest speakers regarding travel schedules, physical bookings, and hosting layouts.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Leader 8: Da'wa Coordinator -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Directs campus mentorship structures, hostel Da'wah programs, and updates outreach educational distribution.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/dawa_coordinator.jpg" alt="Da'wa Coordinator Photo" id="img-dawa" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Salma Kassim" onclick="event.stopPropagation();">
-                        <p class="role">Da'wa Coordinator</p>
-                        <p class="course-tag">BSc. Nursing Science</p>
+                <!-- 8. DA'WA COORDINATOR -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/dawa_coordinator.jpg" alt="Salma Kassim" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-dawa'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Salma Kassim</div>
+                    <div class="role">Da'wa Coordinator</div>
+                    <div class="course-tag">BSc. Nursing Science</div>
+                    
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Formulates and evaluates the educational curricula, material contents, and schedules for campus Da'wah activities.</li>
+                            <li>Organizes and drives external community outreach campaigns, correctional facility visits, and inter-collegiate symposiums.</li>
+                            <li>Establishes structured hostel-based peer support groups, hospital visitations, and truth-seeking introductory forums.</li>
+                            <li>Supervises the selection, verification, and collection tracking of Islamic literary materials, brochures, and digital media content.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Leader 9: Student Imam -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Leads congregation prayers, establishes foundational halaqas, and coordinates Friday Khutbah alignments.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/imam.jpg" alt="Student Imam Photo" id="img-imam" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Idris Abdi" onclick="event.stopPropagation();">
-                        <p class="role">Student Imam</p>
-                        <p class="course-tag">BSc. Mathematics & Computer Science</p>
+                <!-- 9. STUDENT IMAM -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/imam.jpg" alt="Idris Abdi" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-imam'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Idris Abdi</div>
+                    <div class="role">Student Imam</div>
+                    <div class="course-tag">BSc. Mathematics & Computer Science</div>
+                    
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Provides primary spiritual guidance, leads daily congregational prayers, and schedules Friday Khutbah alignments.</li>
+                            <li>Delivers or delegates weekly halaqas, Qur'anic exegesis (Tafsir) programs, and jurisprudence sessions for brothers.</li>
+                            <li>Oversees the spiritual correctness, behavioral discipline, and Islamic standard adherence of all association events.</li>
+                            <li>Offers spiritual advice, guidance counseling, and pastoral support to students dealing with personal or academic trials.</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Leader 10: Muadhin -->
-                <div class="leader-card" onclick="openLeaderModal(this)" data-desc="Manages timely call to prayer (Adhan), monitors daily prayer parameter upkeep, and assists mosque logistics.">
-                    <div>
-                        <div class="avatar-box">
-                            <img src="images/muadhin.jpg" alt="Muadhin Photo" id="img-muadhin" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <input type="text" class="editable-name-input" value="Khalid Walid" onclick="event.stopPropagation();">
-                        <p class="role">Muadhin</p>
-                        <p class="course-tag">BSc. Mechanical Engineering</p>
+                <!-- 10. MUADHIN -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
+                    <div class="avatar-box">
+                        <img src="images/muadhin.jpg" alt="Khalid Walid" onerror="this.src='https://via.placeholder.com/150'">
                     </div>
-                    <label class="image-upload-btn" onclick="event.stopPropagation();">
-                        Change Photo
-                        <input type="file" class="hidden-file-input" onchange="previewImage(this, 'img-muadhin'); event.stopPropagation();">
-                    </label>
+                    <div class="name">Khalid Walid</div>
+                    <div class="role">Muadhin</div>
+                    <div class="course-tag">BSc. Mechanical Engineering</div>
+                    
+                    <div class="constitutional-roles" style="display:none;">
+                        <ul>
+                            <li>Responsible for making the timely call to prayer (Adhan) for all daily prayers and Jumu'ah congregations.</li>
+                            <li>Maintains the structural cleanliness, safety setup, operational readiness, and equipment care of the campus prayer facilities.</li>
+                            <li>Assists the Student Imam in coordinating orderly row arrays, storage of sacred texts, and administrative security during prayers.</li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
         </section>
 
@@ -911,22 +908,33 @@
 
     </main>
 
-    <!-- Interactive Detail Modal Component -->
+    <!-- Isolated Scroll Modal Structure -->
     <div id="leaderModal" class="mamu-modal" onclick="closeLeaderModal()">
         <div class="modal-wrapper" onclick="event.stopPropagation();">
             <span class="close-modal" onclick="closeLeaderModal()">&times;</span>
-            <div class="modal-avatar">
-                <img id="modalImg" src="" alt="Profile Image">
+            
+            <!-- Fixed Top Header Info (Will not scroll) -->
+            <div class="modal-header-content">
+                <div class="modal-avatar">
+                    <img id="modalImg" src="" alt="Profile Image">
+                </div>
+                <h4 id="modalName"></h4>
+                <div>
+                    <span id="modalRole" class="modal-role-badge"></span>
+                </div>
+                <div id="modalCourse" class="modal-course-text"></div>
             </div>
-            <input type="text" id="modalName" class="modal-name-input" oninput="updateBackToCard()">
-            <div>
-                <span id="modalRole" class="modal-role-badge"></span>
+            
+            <!-- Isolated Scroll Container for Constitution Rules -->
+            <div class="modal-scroll-body">
+                <div class="modal-description-box">
+                    <h5>Constitutional Responsibilities</h5>
+                    <div id="modalRolesContainer">
+                        <!-- Dynamic list populated by JavaScript -->
+                    </div>
+                </div>
             </div>
-            <input type="text" id="modalCourse" class="modal-course-input" oninput="updateBackToCard()">
-            <div class="modal-description-box">
-                <strong>Key Responsibilities:</strong>
-                <p id="modalDesc" style="margin-top: 5px; font-weight: 500;"></p>
-            </div>
+            
         </div>
     </div>
 
@@ -935,58 +943,30 @@
     </footer>
 
     <script>
-        // Store current active card element reference
-        let activeCardRef = null;
-
-        function previewImage(input, targetImageId) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById(targetImageId).setAttribute('src', e.target.result);
-                    // If the modal is open for this card, update modal image instantly too
-                    if(activeCardRef && activeCardRef.querySelector('img').id === targetImageId) {
-                        document.getElementById('modalImg').src = e.target.result;
-                    }
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
         function openLeaderModal(card) {
-            activeCardRef = card;
-            
-            // Extract details from clicked card
+            // Extract textual and graphic values directly from the clicked card
             const imgSrc = card.querySelector('.avatar-box img').src;
-            const nameValue = card.querySelector('.editable-name-input').value;
+            const nameText = card.querySelector('.name').innerText;
             const roleText = card.querySelector('.role').innerText;
             const courseText = card.querySelector('.course-tag').innerText;
-            const description = card.getAttribute('data-desc') || "No operational role breakdown mapped yet.";
+            const rolesHtml = card.querySelector('.constitutional-roles').innerHTML;
 
-            // Inject into template modal
+            // Map variables directly to static DOM components inside the Modal view
             document.getElementById('modalImg').src = imgSrc;
-            document.getElementById('modalName').value = nameValue;
+            document.getElementById('modalName').innerText = nameText;
             document.getElementById('modalRole').innerText = roleText;
-            document.getElementById('modalCourse').value = courseText;
-            document.getElementById('modalDesc').innerText = description;
+            document.getElementById('modalCourse').innerText = courseText;
+            document.getElementById('modalRolesContainer').innerHTML = rolesHtml;
 
-            // Display view window
+            // Display modal view wrapper and freeze background webpage scroll
             document.getElementById('leaderModal').style.display = "flex";
+            document.body.classList.add('modal-open');
         }
 
         function closeLeaderModal() {
             document.getElementById('leaderModal').style.display = "none";
-            activeCardRef = null;
-        }
-
-        function updateBackToCard() {
-            if(activeCardRef) {
-                // Two-way synchronization updates profile layout background parameters seamlessly
-                const updatedName = document.getElementById('modalName').value;
-                const updatedCourse = document.getElementById('modalCourse').value;
-
-                activeCardRef.querySelector('.editable-name-input').value = updatedName;
-                activeCardRef.querySelector('.course-tag').innerText = updatedCourse;
-            }
+            // Unfreeze background window scroll smoothly
+            document.body.classList.remove('modal-open');
         }
     </script>
 </body>
