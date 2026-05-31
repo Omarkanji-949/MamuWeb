@@ -36,7 +36,7 @@
         .modal-description-box h5 { color: var(--primary-green); margin-bottom: 10px; text-transform: uppercase; }
         .modal-description-box ul { margin-left: 20px; }
         .modal-description-box li { margin-bottom: 8px; }
-        footer { background-color: var(--deep-brown); color: var(--pure-white); text-align: center; padding: 20px; margin-top: 40px; border-top: 4px solid var(--primary-green); }
+        footer { background-color: var(--deep-brown); color: var(--pure-white); text-align: center; padding: 20px; margin-top: 40px; border-top: 5px solid var(--primary-green); }
     </style>
 </head>
 <body>
@@ -48,58 +48,65 @@
         <section class="section-card">
             <h3>MAMU Student Leaders (Executive Board)</h3>
             <p>Click on any leader's card to open their profile view and read their full constitutional duties and roles.</p>
+            
             <div class="leaders-grid">
-                <!-- PATRON -->
+                <!-- 1. PATRON -->
                 <div class="leader-card" onclick="openLeaderModal(this)">
                     <div class="avatar-box"><img src="images/patron.jpg" alt="Dr. Mohamed Shano" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'"></div>
                     <div class="name">Dr. Mohamed Shano</div><div class="role">Patron (Ex-Officio)</div><div class="course-tag">Faculty Administration</div>
                     <div class="constitutional-roles" style="display:none;">
                         <ul>
-                           <li>Acts as the principal ex-officio link between the association and the university administration.</li>
+                            <li>Acts as the principal ex-officio link between the association and the university administration.</li>
                             <li>Provides advisory guidelines to ensure executive strategies align with university policy parameters.</li>
                             <li>Countersigns external association records, constitutional updates, and high-level structural declarations.</li>
                             <li>Arbitrates internal structural disputes within the Executive Board or general assembly should standard arbitration fail.</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- CHAIRMAN -->
+
+                <!-- 2. CHAIRMAN -->
                 <div class="leader-card" onclick="openLeaderModal(this)">
                     <div class="avatar-box"><img src="images/chairman.jpg" alt="Yussuf Hassan" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'"></div>
                     <div class="name">Yussuf Hassan</div><div class="role">Chairman</div><div class="course-tag">BSc. Computer Science</div>
                     <div class="constitutional-roles" style="display:none;">
                         <ul>
-                              <li>Serves as the head executive authority, official spokesperson, and representative lead of the association.</li>
+                            <li>Serves as the head executive authority, official spokesperson, and representative lead of the association.</li>
                             <li>Convenes and chairs all Executive Committee meetings and general student assemblies.</li>
                             <li>Directs and oversees the execution of annual programmatic schedules, activities, and constitutional obligations.</li>
                             <li>Authorizes expenditures and signs official documents, protocols, and statements on behalf of the association.</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- CHAIRLADY -->
+
+                <!-- 3. CHAIRLADY -->
                 <div class="leader-card" onclick="openLeaderModal(this)">
                     <div class="avatar-box"><img src="images/chairlady.jpg" alt="Amina Mansour" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'"></div>
                     <div class="name">Amina Mansour</div><div class="role">Chairlady</div><div class="course-tag">BSc. Information Technology</div>
                     <div class="constitutional-roles" style="display:none;">
                         <ul>
-                           <li>Heads the MAMU Sisters' Wing, overseeing spiritual nurturing, specific welfare parameters, and personal development programs for ladies.</li>
+                            <li>Heads the MAMU Sisters' Wing, overseeing spiritual nurturing, specific welfare parameters, and personal development programs for ladies.</li>
                             <li>Assists the Chairman in structural operations and executes executive authority over the general assembly in his absence.</li>
                             <li>Coordinates and aligns the implementation of sister-led Da'wah networks, mentorship projects, and health seminars.</li>
                             <li>Represents the distinct voice, interests, and protection parameters of female Muslim students on the executive panel.</li>
                         </ul>
                     </div>
                 </div>
-                <!-- SECRETARY -->
+
+                <!-- 4. SECRETARY -->
                 <div class="leader-card" onclick="openLeaderModal(this)">
                     <div class="avatar-box"><img src="images/secretary.jpg" alt="Bilal Omar" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'"></div>
                     <div class="name">Bilal Omar</div><div class="role">Secretary</div><div class="course-tag">BSc. Software Engineering</div>
                     <div class="constitutional-roles" style="display:none;">
                         <ul>
-                           <li>Manages and archives all official correspondence, logs, records, and memberships of the association.</li>
+                            <li>Manages and archives all official correspondence, logs, records, and memberships of the association.</li>
                             <li>Prepares, schedules, and circulates notices, agendas, and clear minutes for all executive and general sessions.</li>
                             <li>Maintains an accurate register of all registered Muslim students within the university system.</li>
                             <li>Drafts the standard comprehensive annual secretarial performance reports for review by the patron and assembly.</li>
                         </ul>
                     </div>
                 </div>
-                <!-- TREASURER -->
+
+                <!-- 5. TREASURER -->
                 <div class="leader-card" onclick="openLeaderModal(this)">
                     <div class="avatar-box"><img src="images/treasurer.jpg" alt="Fatma Zein" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'"></div>
                     <div class="name">Fatma Zein</div><div class="role">Treasurer</div><div class="course-tag">Bachelor of Commerce (Finance)</div>
@@ -112,16 +119,15 @@
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="leader-card" onclick="openLeaderModal(this)">
+                <!-- 6. ORGANIZING SECRETARY -->
+                <div class="leader-card" onclick="openLeaderModal(this)">
                     <div class="avatar-box">
                         <img src="images/organizing_secretary.jpg" alt="Faiz Ahmed" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'">
                     </div>
                     <div class="name">Faiz Ahmed</div>
                     <div class="role">Organizing Secretary</div>
                     <div class="course-tag">BSc. Civil Engineering</div>
-                    
                     <div class="constitutional-roles" style="display:none;">
                         <ul>
                             <li>Directs and coordinates all physical layout setups, logistics, equipment, and venue arrangements for MAMU events.</li>
@@ -132,7 +138,7 @@
                     </div>
                 </div>
 
-                <!-- 8. DA'WA COORDINATOR -->
+                <!-- 7. DA'WA COORDINATOR -->
                 <div class="leader-card" onclick="openLeaderModal(this)">
                     <div class="avatar-box">
                         <img src="images/dawa_coordinator.jpg" alt="Salma Kassim" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'">
@@ -140,7 +146,6 @@
                     <div class="name">Salma Kassim</div>
                     <div class="role">Da'wa Coordinator</div>
                     <div class="course-tag">BSc. Nursing Science</div>
-                    
                     <div class="constitutional-roles" style="display:none;">
                         <ul>
                             <li>Formulates and evaluates the educational curricula, material contents, and schedules for campus Da'wah activities.</li>
@@ -151,7 +156,7 @@
                     </div>
                 </div>
 
-                <!-- 9. STUDENT IMAM -->
+                <!-- 8. STUDENT IMAM -->
                 <div class="leader-card" onclick="openLeaderModal(this)">
                     <div class="avatar-box">
                         <img src="images/imam.jpg" alt="Idris Abdi" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'">
@@ -159,7 +164,6 @@
                     <div class="name">Idris Abdi</div>
                     <div class="role">Student Imam</div>
                     <div class="course-tag">BSc. Mathematics & Computer Science</div>
-                    
                     <div class="constitutional-roles" style="display:none;">
                         <ul>
                             <li>Provides primary spiritual guidance, leads daily congregational prayers, and schedules Friday Khutbah alignments.</li>
@@ -170,7 +174,7 @@
                     </div>
                 </div>
 
-                <!-- 10. MUADHIN -->
+                <!-- 9. MUADHIN -->
                 <div class="leader-card" onclick="openLeaderModal(this)">
                     <div class="avatar-box">
                         <img src="images/muadhin.jpg" alt="Khalid Walid" onerror="this.onerror=null;this.src='https://via.placeholder.com/150'">
@@ -178,7 +182,6 @@
                     <div class="name">Khalid Walid</div>
                     <div class="role">Muadhin</div>
                     <div class="course-tag">BSc. Mechanical Engineering</div>
-                    
                     <div class="constitutional-roles" style="display:none;">
                         <ul>
                             <li>Responsible for making the timely call to prayer (Adhan) for all daily prayers and Jumu'ah congregations.</li>
@@ -187,8 +190,7 @@
                         </ul>
                     </div>
                 </div>
-
-            </div>
+            </div> <!-- .leaders-grid strictly closes here now -->
         </section>
     </main>
 
