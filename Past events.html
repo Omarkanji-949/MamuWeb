@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Events | Muslim Association of Meru University</title>
+    <style>
+        /* --- Color Palette Variables --- */
+        :root {
+            --primary-green: #0a5c36;
+            --accent-gold: #f9c623;
+            --deep-brown: #5c3a21;
+            --pure-white: #ffffff;
+            --off-white: #f9f9f9;
+            --text-dark: #222222;
+        }
+
+        /* --- Reset & Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--off-white);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23f9c623' stroke-width='0.5' stroke-opacity='0.15'/%3E%3Cpath d='M0 0L30 30L0 60Z' fill='none' stroke='%230a5c36' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M60 0L30 30L60 60Z' fill='none' stroke='%230a5c36' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Ccircle cx='30' cy='30' r='5' fill='none' stroke='%235c3a21' stroke-width='0.5' stroke-opacity='0.2'/%3E%3C/svg%3E");
+        }
+
+        /* --- Main Header Row --- */
+        .main-header-row {
+            background: var(--pure-white);
+            border-bottom: 2px solid #eaeaea;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        .brand-identity {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-container {
+            max-width: 75px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .brand-title {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .back-home-btn {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            border: 2px solid var(--primary-green);
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-home-btn:hover {
+            background-color: var(--primary-green);
+            color: var(--pure-white);
+        }
+
+        /* --- Page Title Layout --- */
+        .page-banner {
+            background: linear-gradient(rgba(10, 92, 54, 0.9), rgba(92, 58, 33, 0.9));
+            color: var(--pure-white);
+            text-align: center;
+            padding: 50px 20px;
+            margin-bottom: 40px;
+        }
+
+        .page-banner h2 {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Content Container --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+        }
+
+        /* --- Grid Layout for Past Events --- */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card {
+            background: var(--pure-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary-green);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--accent-gold);
+        }
+
+        .event-image-box {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background-color: #eee;
+        }
+
+        .event-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover .event-image-box img {
+            transform: scale(1.05);
+        }
+
+        .event-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .event-date {
+            font-size: 0.85rem;
+            color: var(--primary-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            color: var(--deep-brown);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .event-description {
+            font-size: 0.95rem;
+            color: #555555;
+            line-height: 1.5;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--deep-brown);
+            color: var(--pure-white);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 5px solid var(--primary-green);
+            margin-top: 40px;
+        }
+
+        /* --- Responsive Viewports --- */
+        @media (max-width: 768px) {
+            .header-nav-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .page-banner h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Header Row -->
+    <nav class="main-header-row">
+        <div class="header-nav-container">
+            <a href="index.html" class="brand-identity">
+                <div class="logo-container">
+                    <img src="MAMU logo.png" alt="MAMU Logo" onerror="this.onerror=null;this.src='https://via.placeholder.com/75'">
+                </div>
+                <div class="brand-title">
+                    Muslim Association of<br>Meru University
+                </div>
+            </a>
+            <a href="index.html" class="back-home-btn">Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <header class="page-banner">
+        <h2>MAMU Past Events</h2>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        <div class="events-grid">
+
+            <!-- Event 1: Eid Al Fitr -->
+            <article class="event-card">
+                <div class="event-image-box">
+                    <img src="images/eid-al-fitr.jpg" alt="Eid Al Fitr Celebration" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250'">
+                </div>
+                <div class="event-content">
+                    <div class="event-date">Community & Spiritual</div>
+                    <h3 class="event-title">Eid Al Fitr Celebration</h3>
+                    <p class="event-description">A beautiful day of unity, prayer, and gratitude as our university community joined together to mark the conclusion of the holy month of Ramadan.</p>
+                </div>
+            </article>
+
+            <!-- Event 2: Kaithe Fall Visit -->
+            <article class="event-card">
+                <div class="event-image-box">
+                    <img src="images/kaithe-falls.jpg" alt="Kaithe Fall Visit" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250'">
+                </div>
+                <div class="event-content">
+                    <div class="event-date">Exploration & Outdoor</div>
+                    <h3 class="event-title">Kaithe Fall Visit</h3>
+                    <p class="event-description">An adventurous and refreshing community outdoor trek designed to cultivate deep brotherhood, team bonding, and reflection amidst natural wonders.</p>
+                </div>
+            </article>
+
+            <!-- Event 3: Water Source Visit -->
+            <article class="event-card">
+                <div class="event-image-box">
+                    <img src="images/water-source.jpg" alt="Water Source Visit" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250'">
+                </div>
+                <div class="event-content">
+                    <div class="event-date">Charity & Environment</div>
+                    <h3 class="event-title">Water Source Visit</h3>
+                    <p class="event-description">An impactful field excursion exploring regional ecosystems while reflecting deeply upon natural preservation and community resource appreciation.</p>
+                </div>
+            </article>
+
+            <!-- Event 4: MUST Got Talent -->
+            <article class="event-card">
+                <div class="event-image-box">
+                    <img src="images/must-talent.jpg" alt="MUST Got Talent" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250'">
+                </div>
+                <div class="event-content">
+                    <div class="event-date">Campus & Culture</div>
+                    <h3 class="event-title">MUST Got Talent</h3>
+                    <p class="event-description">Celebrating creativity, unique skillsets, and exceptional presentation displays as students shared their diverse gifts across the campus scene.</p>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Muslim Association of Meru University (MAMU). All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
