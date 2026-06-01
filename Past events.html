@@ -123,6 +123,14 @@
             gap: 30px;
         }
 
+        /* Wrap target elements gracefully within custom link anchors */
+        .event-link-wrapper {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
         .event-card {
             background: var(--pure-white);
             border-radius: 8px;
@@ -132,6 +140,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
         .event-card:hover {
@@ -237,19 +246,19 @@
     <main class="container">
         <div class="events-grid">
 
-            <!-- Event 1: Eid Al Fitr -->
-            <article class="event-card">
-                <div class="event-image-box">
-                    <img src="Eid1.jpg" alt="Eid Al Fitr Celebration" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250'">
-                    <a href="Eid Al Fitr.html">...</a>
-                </div>
-                <div class="event-content">
-                    <div class="event-date">20th March 2026</div>
-                    <h3 class="event-title">Eid Al Fitr Celebration</h3>
-                    <p class="event-description">A beautiful day of unity, prayer, and gratitude as our university community joined together to mark the conclusion of the holy month of Ramadan.</p>
-                    
-                </div>
-            </article>
+            <!-- Event 1: Eid Al Fitr (Linked to dedicated details page) -->
+            <a href="Eid Al Fitr.html" class="event-link-wrapper">
+                <article class="event-card">
+                    <div class="event-image-box">
+                        <img src="Eid1.jpg" alt="Eid Al Fitr Celebration" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x250'">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">20th March 2026</div>
+                        <h3 class="event-title">Eid Al Fitr Celebration</h3>
+                        <p class="event-description">A beautiful day of unity, prayer, and gratitude as our university community joined together to mark the conclusion of the holy month of Ramadan.</p>
+                    </div>
+                </article>
+            </a>
 
             <!-- Event 2: Kaithe Fall Visit -->
             <article class="event-card">
